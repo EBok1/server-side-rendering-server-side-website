@@ -27,11 +27,15 @@ app.get('/', function (request, response) {
 })
 
 app.get('/vraag-aanbod', function (request, response) {
-    response.render('vraag-aanbod')
+    fetchJson('https://fdnd-agency.directus.app/items/dh_services').then((servicesDataUitDeAPI) => {
+        response.render('vraag-aanbod', { services: servicesDataUitDeAPI.data })
+    });
 })
 
 app.get('/detail', function (request, response) {
-    response.render('detail')
+    fetchJson('https://fdnd-agency.directus.app/items/dh_services').then((servicesDataUitDeAPI) => {
+        response.render('detail', { services: servicesDataUitDeAPI.data[0] })
+    });
 })
 
 // app.get('/vraag-aanbod', function (request, response) {

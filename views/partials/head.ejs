@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <!-- link to css -->
+    <link rel="stylesheet" href="/style/style.css">
 </head>
 
 <body>
@@ -19,7 +22,10 @@
             </li>
             <li>
                 <a href="/vraag-aanbod" <% if (current=='/vraag-aanbod' ) { %> class="active"<% } %>
-                        >Buurtinitiatieven</a>
+                        >Buurtprojecten</a>
+            </li>
+            <li>
+                <a href="/detail" <% if (current=='/detail' ) { %> class="active"<% } %>>Detail</a>
             </li>
             <li>
                 <a href="/detail" <% if (current=='/detail' ) { %> class="active"<% } %>>Contact</a>
