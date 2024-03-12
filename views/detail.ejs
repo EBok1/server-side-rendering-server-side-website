@@ -3,13 +3,22 @@
     <main>
         <section>
             <h1>
-                <%= services.title %>
+                <%= service.title %>
             </h1>
 
-            <h2>Hallo test</h2>
+            <% if (service.image) { %>
+                <img src="https://fdnd-agency.directus.app/assets/<%= service.image %>">
+                <% } %>
+
+                    <p>
+                        <span>
+                            <%= service.start_date %> - <%= service.end_date %>
+                        </span>
+                    </p>
+
+                    <p><%- service.long_description %></p>
+                    </div>
         </section>
-
-
     </main>
 
     <%- include('./partials/foot') %>

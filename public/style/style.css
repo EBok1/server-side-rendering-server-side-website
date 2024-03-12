@@ -1,18 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+
 li {
     display: flex;
     list-style: none;
     padding: 1em;
 }
 
+li a {
+    text-decoration: none;
+    font-weight: bold;
+    color: rgb(51, 51, 51);
+}
+
 ul {
     display: flex;
-    margin-bottom: 0.5em;
+    text-align: center;
+    justify-content: center;
 }
 
 img {
-    width: 35em;
+    width: 100%;
+    padding-bottom: 1em;
+    /* object-fit: cover; */
 }
 
 nav {
-    background-color: peachpuff;
+    background-color: rgb(228, 242, 238);
+    position: fixed;
+    /* Set the navbar to fixed position */
+    top: 0;
+    /* Position the navbar at the top of the page */
+    width: 100%;
+    /* Full width */
+}
+
+article {
+    max-width: 30em;
+    padding: 1em;
 }

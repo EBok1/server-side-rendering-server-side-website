@@ -32,25 +32,29 @@ app.get('/vraag-aanbod', function (request, response) {
     });
 })
 
-app.get('/detail', function (request, response) {
+app.get('/vraag-aanbod/:projectId', function (request, response) {
+    fetchJson('https://fdnd-agency.directus.app/items/dh_services?filter={"id":' + request.params.projectId + '}').then((serviceDetail) => {
+        response.render('detail', { service: serviceDetail.data[0] })
+    })
+})
+
+app.get('/contact', function (request, response) {
     fetchJson('https://fdnd-agency.directus.app/items/dh_services').then((servicesDataUitDeAPI) => {
-        response.render('detail', { services: servicesDataUitDeAPI.data[0] })
+        response.render('contact', { services: servicesDataUitDeAPI.data })
     });
 })
 
-// app.get('/vraag-aanbod', function (request, response) {
+app.get('/about', function (request, response) {
+    fetchJson('https://fdnd-agency.directus.app/items/dh_services').then((servicesDataUitDeAPI) => {
+        response.render('about', { services: servicesDataUitDeAPI.data })
+    });
+})
 
-//     fetchJson('https://fdnd-agency.directus.app/admin/content/dh_services').then((vraagAanbodDataUitDeAPI) => {
-//         response.render('vraag-aanbod', { vraagaanbod: vraagAanbodDataUitDeAPI.data })
-//     });
-
-// })
-
-// app.get('/vraag-aanbod/:detail', function (request, response) {
-//     fetchJson('https://fdnd-agency.directus.app/admin/content/dh_services/1' + request.params.detail + '}').then((pizzaDetail) => {
-//         response.render('detail', { detail: detailVraagaanbod.data[0] })
-//     })
-// })
+app.get('/faq', function (request, response) {
+    fetchJson('https://fdnd-agency.directus.app/items/dh_services').then((servicesDataUitDeAPI) => {
+        response.render('faq', { services: servicesDataUitDeAPI.data })
+    });
+})
 
 
 // Stel het poortnummer in waar express op moet gaan luisteren
