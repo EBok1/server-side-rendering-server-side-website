@@ -20,10 +20,12 @@ app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 
 
-// TODO: routes voor deze pizza applicatie..
+// TODO: routes voor deze hallen applicatie..
 
 app.get('/', function (request, response) {
-    response.render('home')
+    fetchJson('https://fdnd-agency.directus.app/items/dh_services').then((servicesDataUitDeAPI) => {
+        response.render('home', { services: servicesDataUitDeAPI.data })
+    });
 })
 
 app.get('/vraag-aanbod', function (request, response) {
